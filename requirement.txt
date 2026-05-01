@@ -1,0 +1,121 @@
+Phần3—Môhình Dự báo Doanh thu (Sales Forecasting)
+▶ Bối cảnh kinh doanh
+Bạn là nhà khoa học dữ liệu tại một công ty thương mại điện tử thời trang Việt Nam. Doanh
+nghiệp cần dự báo nhu cầu chính xác ở mức chi tiết để tối ưu hoá phân bổ tồn kho, lập kế hoạch
+khuyến mãi và quản lý logistics trên toàn quốc.
+▶ Định nghĩa bài toán
+Dự báo cột Revenue trong khoảng thời gian của sales_test.csv.
+Mỗidòngtrong tập test là một bộ (Date,Revenue,COGS) duy nhất trong giai đoạn 01/01/2023– 01/07/2024.
+▶ Dữ liệu
+Split File
+Khoảng thời gian
+Train sales.csv
+Test
+04/07/2012– 31/12/2022
+sales_test.csv 01/01/2023– 01/07/2024
+▶ Chỉ số đánh giá
+Bài nộp được đánh giá bằng ba chỉ số:
+Mean Absolute Error (MAE):
+MAE= 1
+n 
+n
+i=1
+|Fi −Ai|
+Root Mean Squared Error (RMSE):
+RMSE=
+R2 (Coefficient of Determination):
+R2 =1−
+n
+1
+n
+n
+i=1
+(Fi −Ai)2
+i=1(Ai − Fi)2
+n
+i=1(Ai − ¯A)2
+trong đó Fi là giá trị dự báo, Ai là giá trị thực, ¯A là trung bình giá trị thực. MAE đo độ
+lệch tuyệt đối trung bình, RMSE phạt nặng hơn các sai số lớn, và R2 thể hiện tỷ lệ phương sai
+được giải thích bởi mô hình.
+MAE và RMSE càng thấp càng tốt. R2 càng cao càng tốt (lý tưởng gần 1).
+▶ Định dạng file nộp
+Nộp file submission.csv với các cột sau:
+Các dòng trong submission.csv phải giữ đúng thứ tự như sample_submission.csv.
+Không sắp xếp lại hoặc xáo trộn.
+Ví dụ:
+11
+DATATHON 2026 — The Gridbreakers
+Được tổ chức bởi VinTelligence — VinUni DS&AI Club
+Date,Revenue,COGS
+2023-01-01,26607.2,2585.15
+2023-01-02,1007.89,163.0
+2023-01-03,1089.51,821.12
+...
+▶ Ràng buộc
+1. Không dùng dữ liệu ngoài: Tất cả đặc trưng phải được tạo từ các file dữ liệu được
+cung cấp.
+2. Tính tái lập (Reproducibility): Đính kèm toàn bộ mã nguồn. Đặt random seed khi
+cần thiết.
+3. Khả năng giải thích (Explainability): Trong report, bao gồm một mục giải thích các
+yếu tố dẫn động doanh thu chính được mô hình xác định (vd: feature importances, SHAP
+values, hoặc partial dependence plots). Giải thích những gì mô hình học được bằng ngôn
+ngữ kinh doanh
+
+Phần3—Môhình Dự báo Doanh thu (20 điểm)
+Điểm Phần 3 được tính từ hai thành phần: hiệu suất mô hình trên Kaggle và chất lượng báo
+cáo kỹ thuật.
+14
+DATATHON 2026 — The Gridbreakers
+Được tổ chức bởi VinTelligence — VinUni DS&AI Club
+Thành phần
+Mô tả
+Điểm tối đa
+Hiệu suất mô hình
+Báo cáo kỹ thuật
+Dựa trên điểm MAE, RMSE,
+R2 trên tập test (Kaggle leader
+board); xếp hạng tương đối so
+với các đội khác trong cuộc thi
+Chất lượng pipeline (feature en
+gineering, cross-validation, xử
+lý leakage); giải thích mô hình
+bằng SHAP / feature impor
+tance; tuân thủ các ràng buộc
+đã nêu
+12
+8
+Tổng tối đa
+20 điểm
+Thành phần
+Mức
+điểm
+Mô tả
+Hiệu suất mô hình
+(12đ)
+10–12đ
+5–9đ
+3–4đ
+Xếp hạng top leaderboard; MAE và
+RMSE thấp, R2 cao
+Hiệu suất trung bình; mô hình hoạt động
+nhưng chưa tối ưu
+Bài nộp hợp lệ nhưng hiệu suất thấp; mức
+điểm sàn
+Báo cáo kỹ thuật
+(8đ)
+7–8đ
+4–6đ
+0–3đ
+Pipeline rõ ràng, cross-validation đúng
+chiều thời gian, giải thích mô hình cụ thể
+bằng SHAP hoặc tương đương, tuân thủ
+đầy đủ ràng buộc
+Pipeline đủ dùng, giải thích còn định tính,
+một số ràng buộc chưa được xử lý tường
+minh
+Thiếu giải thích, không kiểm soát leakage,
+hoặc không thể tái lập kết quả
+Điều kiện loại bài: Bài nộp sẽ bị loại toàn bộ Phần 3 nếu vi phạm bất kỳ ràng buộc
+nào sau đây: (1) sử dụng Revenue/COGS từ tập test làm đặc trưng; (2) sử dụng dữ liệu
+ngoài bộ dữ liệu được cung cấp; (3) không đính kèm mã nguồn hoặc kết quả không thể tái
+lập
