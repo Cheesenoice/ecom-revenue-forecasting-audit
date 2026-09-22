@@ -296,49 +296,6 @@ Rather than static reporting, our prescriptive framework operates as a real-time
   <img src="part2-DA/charts/prescriptive_engine.png" alt="Prescriptive Decision Engine" width="750"/>
 </p>
 
-```mermaid
-graph TD
-    classDef data fill:#0C4A6E,stroke:#38BDF8,stroke-width:2px,color:#FFFFFF,font-weight:bold
-    classDef diag fill:#831843,stroke:#F472B6,stroke-width:2px,color:#FFFFFF,font-weight:bold
-    classDef pred fill:#4C1D95,stroke:#A78BFA,stroke-width:2px,color:#FFFFFF,font-weight:bold
-    classDef presc fill:#064E3B,stroke:#34D399,stroke-width:3px,color:#FFFFFF,font-weight:bold
-    classDef kpi fill:#78350F,stroke:#FBBF24,stroke-width:3px,color:#FFFFFF,font-weight:bold
-
-    subgraph DATA["ENTERPRISE DATA STACK (14 Tables)"]
-        D1[(Sales & COGS)]:::data
-        D2[(Orders & Items)]:::data
-        D3[(Inventory)]:::data
-        D4[(Returns)]:::data
-        D5[(Web Traffic)]:::data
-    end
-
-    subgraph INTEL["FORENSIC INTELLIGENCE"]
-        A1["Diagnostic: Value Leak Identification\nCohort Churn · Promo Cannibalization · Stockouts"]:::diag
-        A2["Predictive: Trajectory Forecasting\nCLV Decay · Inventory Run-out · Return Probability"]:::pred
-    end
-
-    subgraph RULES["PRESCRIPTIVE GATING ENGINE"]
-        P1{"Margin Guard\nCart Gross Margin < 8%?"}:::presc
-        P2{"Stockout Buffer\nSKU Days of Supply < 14?"}:::presc
-        P3{"Retention Trigger\nDays Since Delivery = 7?"}:::presc
-        P4{"Size Recommender\nCategory = Streetwear?"}:::presc
-    end
-
-    subgraph VALUE["BOTTOM-LINE VALUE CAPTURE"]
-        V1["Enforce Price Floor\n→ +200M VND/yr Margin"]:::kpi
-        V2["Trigger Replenish / Blacklist Promo\n→ +2.04B VND/yr Revenue"]:::kpi
-        V3["Dispatch Personalized 2nd-Order Offer\n→ +39M VND/cohort LTV"]:::kpi
-        V4["Display Smart Size Matrix\n→ +70M VND Refund Savings"]:::kpi
-    end
-
-    D1 & D2 & D3 & D4 & D5 --> A1 --> A2
-    A2 -.-> P1 & P2 & P3 & P4
-    P1 -- "TRUE" --> V1
-    P2 -- "TRUE" --> V2
-    P3 -- "TRUE" --> V3
-    P4 -- "TRUE" --> V4
-```
-
 ### 90-Day Operational Implementation Plan
 
 <p align="center">
